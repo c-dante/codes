@@ -12,7 +12,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run linter-nofix"
+      "pre-commit": "npm run linter"
     }
   },
   "dependencies": {

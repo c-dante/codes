@@ -11,52 +11,52 @@ import 'codemirror/addon/search/search';
 import 'codemirror/addon/search/match-highlighter';
 
 const themes = [
-	"3024-day",
-	"3024-night",
-	"abcdef",
-	"ambiance-mobile",
-	"ambiance",
-	"base16-dark",
-	"base16-light",
-	"bespin",
-	"blackboard",
-	"cobalt",
-	"colorforth",
-	"dracula",
-	"eclipse",
-	"elegant",
-	"erlang-dark",
-	"hopscotch",
-	"icecoder",
-	"isotope",
-	"lesser-dark",
-	"liquibyte",
-	"material",
-	"mbo",
-	"mdn-like",
-	"midnight",
-	"monokai",
-	"neat",
-	"neo",
-	"night",
-	"panda-syntax",
-	"paraiso-dark",
-	"paraiso-light",
-	"pastel-on-dark",
-	"railscasts",
-	"rubyblue",
-	"seti",
-	"solarized",
-	"the-matrix",
-	"tomorrow-night-bright",
-	"tomorrow-night-eighties",
-	"ttcn",
-	"twilight",
-	"vibrant-ink",
-	"xq-dark",
-	"xq-light",
-	"yeti",
-	"zenburn",
+	'3024-day',
+	'3024-night',
+	'abcdef',
+	'ambiance-mobile',
+	'ambiance',
+	'base16-dark',
+	'base16-light',
+	'bespin',
+	'blackboard',
+	'cobalt',
+	'colorforth',
+	'dracula',
+	'eclipse',
+	'elegant',
+	'erlang-dark',
+	'hopscotch',
+	'icecoder',
+	'isotope',
+	'lesser-dark',
+	'liquibyte',
+	'material',
+	'mbo',
+	'mdn-like',
+	'midnight',
+	'monokai',
+	'neat',
+	'neo',
+	'night',
+	'panda-syntax',
+	'paraiso-dark',
+	'paraiso-light',
+	'pastel-on-dark',
+	'railscasts',
+	'rubyblue',
+	'seti',
+	'solarized',
+	'the-matrix',
+	'tomorrow-night-bright',
+	'tomorrow-night-eighties',
+	'ttcn',
+	'twilight',
+	'vibrant-ink',
+	'xq-dark',
+	'xq-light',
+	'yeti',
+	'zenburn',
 ];
 
 class EditorCtrl {
@@ -65,6 +65,7 @@ class EditorCtrl {
 		console.debug(this.statePath);
 		this.unregister = $ngRedux.connect((state) => ({
 			// @todo: unroll state path?
+			...(state[this.statePath] || {}),
 		}), {
 			// ...actions
 		})(this);
@@ -73,7 +74,7 @@ class EditorCtrl {
 	init(cm) {
 		this.onInit({
 			controller: this,
-			cm
+			cm,
 		});
 	}
 
@@ -98,10 +99,10 @@ export function EditorDirective() {
 			const textarea = elt[0].querySelector('textarea');
 
 			const server = new CodeMirror.TernServer({
-				defs: []
+				defs: [],
 			});
 
-			const cm = CodeMirror.fromTextArea(textarea, {
+			CodeMirror.fromTextArea(textarea, {
 				lineNumbers: true,
 				extraKeys: {
 					'Ctrl-Space': cm => server.complete(cm),
@@ -116,7 +117,7 @@ export function EditorDirective() {
 					name: 'javascript',
 				},
 			});
-		}
+		},
 	};
 }
 

@@ -33,6 +33,12 @@ module.exports = {
 		// set max line length to a more reasonable number
 		'max-len': [2, 120],
 	},
+	parserOptions: {
+		ecmaVersion: 6,
+		ecmaFeatures: {
+			experimentalObjectRestSpread: true,
+		}
+	},
 	env: {
 		mocha: true,
 		browser: true,

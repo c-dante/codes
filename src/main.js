@@ -25,7 +25,7 @@ app.component('repl', {
 	controller: ['$ngRedux', ReplController],
 	template: replTpl,
 	bindToController: {
-	}
+	},
 });
 
 import { EditorDirective } from './editor/editor.js';
