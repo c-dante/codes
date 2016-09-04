@@ -2,23 +2,18 @@
 @import "editor/editor";
 @import "repl/repl";
 
-@mixin fade() {
-	&.ng-hide-add,
-	&.ng-hide-remove {
-		transition: 0s ease all;
-	}
+.fly-away {
+	animation: flyAway 2s ease;
+	animation-fill-mode: forwards;
+}
 
-	&.ng-hide-add-active,
-	&.ng-hide-remove-active {
-		transition: 0.5s ease all;
+@keyframes flyAway {
+	0% {
 	}
-
-	&.ng-hide {
+	25% {
 		opacity: 0;
 	}
+	100% {
+		top: -100%;
+	}
 }
-
-.content-loading {
-	@include fade;
-}
-

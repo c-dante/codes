@@ -6,10 +6,12 @@ html(lang='en')
 		link(rel="stylesheet", type="text/css", href="index.css")
 
 	body(data-ng-app="dante-codes")
-		.content-loading(ng-hide="loaded")
+		.content-loading(
+			ng-class="{ 'fly-away': loaded }"
+		)
 			h2 loading
 
-		landing
+		landing.fade
 
 		script(
 			src="app.bundle.js",

@@ -1,7 +1,7 @@
 const dante = {
 	twitter: '@DanteFederici',
 	email: 'c.dante.federici@gmail.com',
-	github: 'c-dante'
+	github: 'c-dante',
 };
 
 export class LandingController {

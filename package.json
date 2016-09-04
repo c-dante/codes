@@ -1,5 +1,5 @@
 {
-  "name": "dante-codes",
+ "name": "dante-codes",
   "version": "0.0.2",
   "repository": "c-dante/dante-codes",
   "scripts": {
@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-animate": "^1.5.8",
     "codemirror": "^5.18.2",
     "ng-redux": "^3.4.0-beta.1",
     "redux": "^3.5.2",

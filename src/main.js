@@ -1,14 +1,13 @@
 import './main.scss';
 
 import angular from 'angular';
-import ngAnimate from 'angular-animate';
 import ngRedux from 'ng-redux';
 import ReduxThunk from 'redux-thunk';
 
 import { rootReducer } from './root';
 
 const app = angular.module('dante-codes', [
-	ngRedux, ngAnimate,
+	ngRedux,
 ]).config(['$ngReduxProvider', ($ngReduxProvider) => {
 	$ngReduxProvider.createStoreWith(
 			rootReducer,
@@ -28,7 +27,7 @@ import { LandingController } from './landing';
 import landingTpl from './landing.tpl.jade';
 app.component('landing', {
 	template: landingTpl,
-	controller: [LandingController]
+	controller: [LandingController],
 });
 
 import { ReplController } from './repl/repl.js';

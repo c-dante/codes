@@ -8,5 +8,14 @@ landing {
 		display: flex;
 		@include abs-fill;
 		@include flex-center;
+
+		dt {
+		}
+
+		dd {
+			margin: 0.25em 0 1em 1em;
+		}
+
 	}
 }
+
