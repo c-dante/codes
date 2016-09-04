@@ -10,13 +10,17 @@ html(lang='en')
 			}
 
 			.content-loading {
+				position: absolute;
 				text-align: center;
+				top: 50%;
+				transform: translate(0, -50%);
+				width: 100%;
 			}
 
 	body(data-ng-app="dante-codes")
-		h1.content-loading Loading...
+		h1(ng-cloak).content-loading loading
 
-		repl
+		landing
 
 		script(
 			src="app.bundle.js",

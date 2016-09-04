@@ -1,8 +1,5 @@
 import './main.scss';
 
-const loading = document.querySelector('.content-loading');
-loading.classList.add('hidden');
-
 import angular from 'angular';
 import ngRedux from 'ng-redux';
 import ReduxThunk from 'redux-thunk';
@@ -18,6 +15,11 @@ const app = angular.module('dante-codes', [ngRedux])
 			]
 		);
 	}]);
+
+import landingTpl from './landing.tpl.jade';
+app.component('landing', {
+	template: landingTpl
+});
 
 import { ReplController } from './repl/repl.js';
 import replTpl from './repl/repl.tpl.jade';

@@ -13,7 +13,8 @@ module.exports = {
 			{ test: /\.tpl\.(pug|jade)$/, loaders: ['html?removeRedundantAttributes=false', 'jade-html'] },
 			{ test: /\.tpl\.html$/, loaders: ['html?removeRedundantAttributes=false'] },
 			{ test: /[^\.][^t][^p][^l]\.(pug|jade)$/, loaders: ['file?name=[name].html', 'jade-html' ] },
-			{ test: /\.(sass|scss)$/, loaders: ['style', 'css', 'postcss', 'sass'] },
+			{ test: /index\.scss$/, loaders: ['file?name=[name].css', 'css', 'postcss', 'sass']},
+			{ test: /\.(sass|scss)$/, loaders: ['style', 'css', 'postcss', 'sass'], exclude: /index\.scss$/ },
 			{ test: /[^\.][^t][^p][^l]\.html$/, loaders: ['file?name=[name].[ext]'] },
 			{ test: require.resolve('tern'), loader: 'expose?tern' }
 		]
@@ -31,7 +32,14 @@ module.exports = {
 			module: false
 		})
 	],
-	entry: { app: ['tern', './index.jade', './main.js'] },
+	entry: {
+		app: [
+			'tern',
+			'./index.scss',
+			'./index.jade',
+			'./main.js'
+		]
+	},
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve(process.cwd(), 'bin')
