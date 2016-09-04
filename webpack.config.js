@@ -1,6 +1,7 @@
 'use strict';
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
 var path = require('path');
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
 		]
 	},
 	postcss: function(){
-		return [autoprefixer]
+		return [autoprefixer,cssnano]
 	},
 	plugins: [
 		new webpack.SourceMapDevToolPlugin({
