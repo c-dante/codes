@@ -1,0 +1,11 @@
+textarea
+
+section.controls
+	label Theme
+		select(ng-model="$ctrl.theme", ng-change="$ctrl.setTheme($ctrl.theme)")
+			option(value="") Select a theme
+			option(
+				ng-repeat="theme in $ctrl.themes",
+				value="{{theme}}"
+			) {{theme}}
+

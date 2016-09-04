@@ -3,10 +3,20 @@ html(lang='en')
 	head
 		meta(charset='UTF-8')
 		title Demo Page
-	body(data-ng-app="life-events")
+		style(type="text/css").
+			body {
+				background-color: lightskyblue;
+				font-family: sans;
+			}
+
+			.content-loading {
+				text-align: center;
+			}
+
+	body(data-ng-app="dante-codes")
 		h1.content-loading Loading...
 
-		event-form
+		repl
 
 		script(
 			src="app.bundle.js",

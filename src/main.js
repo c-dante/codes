@@ -7,13 +7,9 @@ import angular from 'angular';
 import ngRedux from 'ng-redux';
 import ReduxThunk from 'redux-thunk';
 
-const rootReducer = (state = {}, action) => {
-	console.debug('State', state, 'Action', action);
-	return state;
-};
+import { rootReducer } from './root';
 
-
-const app = angular.module('life-events', [ngRedux])
+const app = angular.module('dante-codes', [ngRedux])
 	.config(['$ngReduxProvider', ($ngReduxProvider) => {
 		$ngReduxProvider.createStoreWith(
 			rootReducer,
@@ -23,17 +19,14 @@ const app = angular.module('life-events', [ngRedux])
 		);
 	}]);
 
-
-class EventFormComponent {
-	constructor($ngRedux) {
-		console.debug('Hey, you', $ngRedux.getState());
+import { ReplController } from './repl/repl.js';
+import replTpl from './repl/repl.tpl.jade';
+app.component('repl', {
+	controller: ['$ngRedux', ReplController],
+	template: replTpl,
+	bindToController: {
 	}
-}
-
-
-import eventFormTpl from './eventForm.tpl.jade';
-app.component('eventForm', {
-	template: eventFormTpl,
-	controller: ['$ngRedux', EventFormComponent],
 });
 
+import { EditorDirective } from './editor/editor.js';
+app.directive('editor', [EditorDirective]);

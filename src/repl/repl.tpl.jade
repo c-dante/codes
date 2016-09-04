@@ -1,0 +1,11 @@
+header
+	h2 repl
+
+section.editor
+	editor(
+		state-path="$ctrl.editorStatePath",
+		on-init="$ctrl.editorInit(controller, cm)"
+	)
+
+section.output
+

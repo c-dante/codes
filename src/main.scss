@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+@import "./editor/editor";
+@import "./repl/repl";
+
 html {
   font-family: 'Open Sans', sans-serif;
   color: #222;

@@ -1,10 +1,9 @@
-h1 Hey, you.
+section.editor
 
-form
-	fieldset
-		label
-			Named shapes
-			select(ng-if="$ctrl.shapes.length")
-				option(ng-repeat="shape in $ctrl.shapes")
-		label
+section.output
 
+section.controls
+	button(ng-click="$ctrl.compile()") compile
+	button(ng-click="$ctrl.save()") save
+	input(ng-model="name", ng-change="$ctrl.updateName(name)")
+	label
