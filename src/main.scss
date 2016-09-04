@@ -1,5 +1,23 @@
 @import "editor/editor";
 @import "repl/repl";
 
+@mixin fade() {
+	&.ng-hide-add,
+	&.ng-hide-remove {
+		transition: 0s ease all;
+	}
 
+	&.ng-hide-add-active,
+	&.ng-hide-remove-active {
+		transition: 0.5s ease all;
+	}
+
+	&.ng-hide {
+		opacity: 0;
+	}
+}
+
+.content-loading {
+	@include fade;
+}
 

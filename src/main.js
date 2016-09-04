@@ -1,20 +1,28 @@
 import './main.scss';
 
 import angular from 'angular';
+import ngAnimate from 'angular-animate';
 import ngRedux from 'ng-redux';
 import ReduxThunk from 'redux-thunk';
 
 import { rootReducer } from './root';
 
-const app = angular.module('dante-codes', [ngRedux])
-	.config(['$ngReduxProvider', ($ngReduxProvider) => {
-		$ngReduxProvider.createStoreWith(
+const app = angular.module('dante-codes', [
+	ngRedux, ngAnimate,
+]).config(['$ngReduxProvider', ($ngReduxProvider) => {
+	$ngReduxProvider.createStoreWith(
 			rootReducer,
-			[
-				ReduxThunk,
-			]
+		[
+			ReduxThunk,
+		]
 		);
-	}]);
+}]).run(['$rootScope', (root) => {
+	setTimeout(() =>
+		root.$applyAsync(() => (root.loaded = true)),
+		10
+	);
+}]);
+
 
 import landingTpl from './landing.tpl.jade';
 app.component('landing', {

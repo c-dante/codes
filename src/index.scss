@@ -1,4 +1,5 @@
 @import "~normalize.css";
+@import "mixins";
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
@@ -6,5 +7,16 @@ html {
   font-family: 'Open Sans', sans-serif;
 	color: #222;
 	font-size: 16px;
+}
+
+body {
+	background-color: lightskyblue;
+}
+
+.content-loading {
+	@include abs-fill;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 

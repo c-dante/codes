@@ -6,7 +6,8 @@ html(lang='en')
 		link(rel="stylesheet", type="text/css", href="index.css")
 
 	body(data-ng-app="dante-codes")
-		h1(ng-cloak).content-loading loading
+		.content-loading(ng-hide="loaded")
+			h2 loading
 
 		landing
 
