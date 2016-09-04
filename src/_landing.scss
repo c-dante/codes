@@ -1,0 +1,12 @@
+@import "mixins";
+
+landing {
+	@include abs-fill;
+	margin: 2em;
+
+	nav {
+		display: flex;
+		@include abs-fill;
+		@include flex-center;
+	}
+}

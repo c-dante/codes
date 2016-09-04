@@ -24,9 +24,11 @@ const app = angular.module('dante-codes', [
 }]);
 
 
+import { LandingController } from './landing';
 import landingTpl from './landing.tpl.jade';
 app.component('landing', {
 	template: landingTpl,
+	controller: [LandingController]
 });
 
 import { ReplController } from './repl/repl.js';

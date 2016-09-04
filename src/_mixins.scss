@@ -5,3 +5,9 @@
 	left: 0;
 	right: 0;
 }
+
+@mixin flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
