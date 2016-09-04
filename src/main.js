@@ -18,7 +18,7 @@ const app = angular.module('dante-codes', [ngRedux])
 
 import landingTpl from './landing.tpl.jade';
 app.component('landing', {
-	template: landingTpl
+	template: landingTpl,
 });
 
 import { ReplController } from './repl/repl.js';

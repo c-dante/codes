@@ -3,19 +3,7 @@ html(lang='en')
 	head
 		meta(charset='UTF-8')
 		title Demo Page
-		style(type="text/css").
-			body {
-				background-color: lightskyblue;
-				font-family: sans;
-			}
-
-			.content-loading {
-				position: absolute;
-				text-align: center;
-				top: 50%;
-				transform: translate(0, -50%);
-				width: 100%;
-			}
+		link(rel="stylesheet", type="text/css", href="index.css")
 
 	body(data-ng-app="dante-codes")
 		h1(ng-cloak).content-loading loading
