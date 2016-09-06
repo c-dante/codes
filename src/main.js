@@ -1,7 +1,8 @@
-import env from 'environment';
 import './main.scss';
 
-console.debug(env);
+// Angular at the top so other things don't fail that expect the global.
+// Looking at you ng-redux.
+import angular from 'angular';
 
 // Build the router
 import { createRouter } from 'router5';
@@ -32,8 +33,6 @@ const appReducer = combineReducers({
 	route: router5Reducer,
 });
 
-// Angular
-import angular from 'angular';
 
 // Create root app module
 const app = angular.module('dante-codes', [
