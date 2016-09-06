@@ -1,17 +1,36 @@
 import './main.scss';
 
-import angular from 'angular';
+// Build the router
+import { createRouter } from 'router5';
+import browserPlugin from 'router5/plugins/browser';
+
+const route = (name, path, opts = {}) => ({ path, name, ...opts });
+
+// Define some routes to test
+const routes = [
+	route('root', '/'),
+];
+
+const router = createRouter(routes, {
+	defaultRoute: 'root',
+}).usePlugin(browserPlugin({
+	useHash: true,
+	hashPrefix: '!',
+}));
+
+// Build state from some defaults
 import ngRedux from 'ng-redux';
-import ReduxThunk from 'redux-thunk';
+import { defaultMiddleware } from './util/state';
 import { combineReducers } from 'redux';
 import { router5Middleware, router5Reducer } from 'redux-router5';
-import { router } from './util/routing';
-import createLogger from 'redux-logger';
 
 // Base reducer -- publiching route only
 const appReducer = combineReducers({
 	route: router5Reducer,
 });
+
+// Angular
+import angular from 'angular';
 
 // Create root app module
 const app = angular.module('dante-codes', [
@@ -20,11 +39,10 @@ const app = angular.module('dante-codes', [
 	$ngReduxProvider.createStoreWith(
 		appReducer,
 		[
+			// Core redux nice-stuff
+			...defaultMiddleware,
+			// App specific
 			router5Middleware(router),
-			ReduxThunk,
-			createLogger({
-				collapsed: true,
-			}),
 		]
 	);
 }]).run(['$rootScope', '$ngRedux', (root) => {
