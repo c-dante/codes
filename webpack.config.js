@@ -8,7 +8,7 @@ module.exports = {
 	module:	{
 		loaders: [
 			{ test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
-			{ test: /\.(eot|woff|woff2|ttf|svg|png|jpg)(\?.*)?$/, loaders: ['file'] },
+			{ test: /\.(ico|eot|woff|woff2|ttf|svg|png|jpg)(\?.*)?$/, loaders: ['file'] },
 			{ test: /\.css$/, loaders: ['style', 'css', 'postcss'] },
 			{ test: /\.less$/, loaders: ['style', 'css', 'postcss', 'less'] },
 			{ test: /\.tpl\.(pug|jade)$/, loaders: ['html?removeRedundantAttributes=false', 'jade-html'] },
@@ -36,9 +36,10 @@ module.exports = {
 	entry: {
 		app: [
 			'tern',
+			'./favicon.ico',
 			'./index.scss',
 			'./index.jade',
-			'./main.js'
+			'./main.js',
 		]
 	},
 	output: {
