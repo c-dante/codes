@@ -4,10 +4,18 @@ landing {
 	@include abs-fill;
 	margin: 2em;
 
-	nav {
+	header {
+		z-index: 10;
+	}
+
+	.contact-info {
 		display: flex;
-		@include abs-fill;
+		flex-direction: column;
+
 		@include flex-center;
+		.spacer {
+			flex: 0.25 0
+		}
 
 		dt {
 		}

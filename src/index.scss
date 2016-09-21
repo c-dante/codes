@@ -20,11 +20,14 @@ body {
 .content-loading {
 	@include abs-fill;
 	display: flex;
+	pointer-events: none;
 	justify-content: center;
 	align-items: center;
+	z-index: 0;
 }
 
 a {
+
 	color: $emphasis;
 	font-weight: bold;
 	text-decoration: none;

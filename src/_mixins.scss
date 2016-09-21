@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin abs-fill {
 	position: absolute;
 	top: 0;
@@ -9,5 +11,15 @@
 @mixin flex-center {
 	justify-content: center;
 	align-items: center;
+}
+
+@mixin btn {
+	margin: 2*$default-margin;
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+		color: grey;
+	}
 }
 
