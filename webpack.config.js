@@ -10,6 +10,27 @@ const buildEnv = process.argv.filter(
 	(arg, i, col) => i > 0 && col[i - 1] === '--env'
 )[0] || 'localhost';
 
+// @todo: env can override webpack
+const wpPlugins = [];
+
+if (buildEnv === 'prod') {
+	wpPlugins.push(new webpack.optimize.UglifyJsPlugin({
+	sourceMap: false
+	}));
+
+	wpPlugins.push(new webpack.optimize.DedupePlugin());
+
+} else {
+	wpPlugins.push(new webpack.SourceMapDevToolPlugin({
+		// exclude the index entry point
+		exclude: /.*index.*$/,
+		columns: false,
+		filename: '[file].map[query]',
+		lineToLine: false,
+		module: false
+	}));
+}
+
 module.exports = {
 	resolve: {
 		alias: {
@@ -34,16 +55,7 @@ module.exports = {
 	postcss: function(){
 		return [autoprefixer,cssnano]
 	},
-	plugins: [
-		new webpack.SourceMapDevToolPlugin({
-			// exclude the index entry point
-			exclude: /.*index.*$/,
-			columns: false,
-			filename: '[file].map[query]',
-			lineToLine: false,
-			module: false
-		})
-	],
+	plugins: wpPlugins,
 	entry: {
 		app: [
 			'tern',

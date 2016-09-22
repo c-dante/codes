@@ -71,6 +71,7 @@ app.component('landing', {
 	controller: [LandingController],
 });
 
+/*
 import { ReplController } from './repl/repl.js';
 import replTpl from './repl/repl.tpl.jade';
 app.component('repl', {
@@ -82,3 +83,4 @@ app.component('repl', {
 
 import { EditorDirective } from './editor/editor.js';
 app.directive('editor', [EditorDirective]);
+*/
