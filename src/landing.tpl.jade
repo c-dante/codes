@@ -1,30 +1,28 @@
-section
-	header
-		nav
-			a(sref="/") dante.codes
-			a(sref="/apps") apps
-			a(sref="/toys") toys
+header
+	nav
+		a(sref="root") dante.codes
+		a(sref="apps") apps
+		a(sref="toys") toys
 
-	.contact-info
-		.spacer
-		dl
-			dt Twitter
-			dd
-				a(
-					target="_blank"
-					ng-href="//twitter.com/{{$ctrl.twitter}}"
-				) {{$ctrl.twitter}}
+.contact
+	dl.contact__list
+		dt.contact__method Github
+		dd.contact__link
+			a(
+				target="_blank"
+				ng-href="//github.com/{{$ctrl.github}}"
+			) {{$ctrl.github}}
 
-			dt Email
-			dd
-				a(
-					ng-href="mailto:{{$ctrl.email}}"
-				) {{$ctrl.email}}
+		dt.contact__method Email
+		dd.contact__link
+			a(
+				ng-href="mailto:{{$ctrl.email}}"
+			) {{$ctrl.email}}
 
-			dt Github
-			dd
-				a(
-					target="_blank"
-					ng-href="//github.com/{{$ctrl.github}}"
-				) {{$ctrl.github}}
+		dt.contact__method Twitter
+		dd.contact__link
+			a(
+				target="_blank"
+				ng-href="//twitter.com/{{$ctrl.twitter}}"
+			) {{$ctrl.twitter}}
 

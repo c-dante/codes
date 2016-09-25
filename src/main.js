@@ -4,23 +4,8 @@ import './main.scss';
 // Looking at you ng-redux.
 import angular from 'angular';
 
-// Build the router
-import { createRouter } from 'router5';
-import browserPlugin from 'router5/plugins/browser';
-
-const route = (name, path, opts = {}) => ({ path, name, ...opts });
-
-// Define some routes to test
-const routes = [
-	route('root', '/'),
-];
-
-const router = createRouter(routes, {
-	defaultRoute: 'root',
-}).usePlugin(browserPlugin({
-	useHash: true,
-	hashPrefix: '!',
-}));
+// Attach router
+import { router } from './util/routing';
 
 // Build state from some defaults
 import ngRedux from 'ng-redux';
@@ -71,16 +56,6 @@ app.component('landing', {
 	controller: [LandingController],
 });
 
-/*
-import { ReplController } from './repl/repl.js';
-import replTpl from './repl/repl.tpl.jade';
-app.component('repl', {
-	controller: ['$ngRedux', ReplController],
-	template: replTpl,
-	bindToController: {
-	},
-});
+import { srefDirective } from './util/srefDirective';
+app.directive('sref', ['$ngRedux', '$parse', srefDirective]);
 
-import { EditorDirective } from './editor/editor.js';
-app.directive('editor', [EditorDirective]);
-*/

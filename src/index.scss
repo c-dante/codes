@@ -36,3 +36,8 @@ a {
 		color: lighten($emphasis, 10%);
 	}
 }
+
+.hidden {
+	visibility: hidden;
+	pointer-events: none;
+}

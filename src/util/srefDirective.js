@@ -1,19 +1,21 @@
 import { actions } from 'redux-router5';
 
-export function srefDirective($ngRedux, $parse) {
+export function srefDirective($ngRedux) {
 	return {
 		restrict: 'A',
 		scope: {
-			sref: '<',
+			sref: '@',
 		},
-		link(scope, elt) {
-			console.debug(elt);
+		link(scope, elt, attrs) {
+			const a = elt[0];
 
-			scope.$on('$changes', (...args) => {
-				console.debug(args);
-			});
+			function click() {
+				$ngRedux.dispatch(actions.navigateTo(attrs.sref));
+			}
+			a.addEventListener('click', click);
 
 			scope.$on('$destroy', () => {
+				a.removeEventListener('click', click);
 			});
 		},
 	};

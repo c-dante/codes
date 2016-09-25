@@ -16,9 +16,10 @@ import browserPlugin from 'router5/plugins/browser';
  */
 export const route = (name, path, opts = {}) => ({ path, name, ...opts });
 
-// Define some routes to test
 const routes = [
 	route('root', '/'),
+	route('toys', '/toys'),
+	route('apps', '/apps'),
 ];
 
 export const router = createRouter(routes, {
