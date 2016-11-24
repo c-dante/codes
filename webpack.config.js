@@ -58,8 +58,6 @@ module.exports = {
 	plugins: wpPlugins,
 	entry: {
 		app: [
-			'tern',
-			'./favicon.ico',
 			'./index.scss',
 			'./index.jade',
 			'./main.js',

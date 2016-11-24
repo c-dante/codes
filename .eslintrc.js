@@ -2,7 +2,7 @@
 module.exports = {
 	settings: {
 		'import/resolver': 'webpack',
-		'import/extensions': [ '.js' ],
+		'import/extensions': ['.js'],
 	},
 	extends: [
 		'airbnb/base',
@@ -14,7 +14,7 @@ module.exports = {
 		ecmaVersion: 6,
 		sourceType: "module",
 		ecmaFeatures: {
-		 experimentalObjectRestSpread: true
+			experimentalObjectRestSpread: true
 		}
 	},
 	rules: {
@@ -47,12 +47,6 @@ module.exports = {
 
 		// set max line length to a more reasonable number
 		'max-len': [2, 120],
-	},
-	parserOptions: {
-		ecmaVersion: 6,
-		ecmaFeatures: {
-			experimentalObjectRestSpread: true,
-		}
 	},
 	env: {
 		mocha: true,
