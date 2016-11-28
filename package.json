@@ -1,7 +1,7 @@
 {
-  "name": "dante-codes",
-  "version": "0.0.5",
-  "repository": "c-dante/dante-codes",
+  "name": "browser-base",
+  "version": "0.4.0",
+  "repository": "c-dante/browser-base",
   "scripts": {
     "compiler": "node ./build",
     "aws-deploy": "aws s3 sync --acl public-read --delete ./bin",
@@ -36,7 +36,7 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
-    "cssnano": "^3.7.4",
+    "cssnano": "^3.8.1",
     "del": "^2.2.2",
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^9.0.1",

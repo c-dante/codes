@@ -4,15 +4,14 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var path = require('path');
 
+const wpPlugins = [];
+
 // Gen env arg
 const buildEnv = process.argv.filter(
 	(arg, i, col) => i > 0 && col[i - 1] === '--env'
 )[0] || 'localhost';
 
 console.log('BUILD ENV: ', buildEnv);
-
-// @todo: env can override webpack
-const wpPlugins = [];
 
 if (buildEnv === 'prod') {
 	wpPlugins.push(
@@ -24,7 +23,6 @@ if (buildEnv === 'prod') {
 			'process.env.NODE_ENV': '"production"'
 		})
 	);
-
 } else {
 	wpPlugins.push(new webpack.SourceMapDevToolPlugin({
 		// exclude the index entry point
