@@ -4,21 +4,26 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var path = require('path');
 
-
 // Gen env arg
 const buildEnv = process.argv.filter(
 	(arg, i, col) => i > 0 && col[i - 1] === '--env'
 )[0] || 'localhost';
 
+console.log('BUILD ENV: ', buildEnv);
+
 // @todo: env can override webpack
 const wpPlugins = [];
 
 if (buildEnv === 'prod') {
-	wpPlugins.push(new webpack.optimize.UglifyJsPlugin({
-	sourceMap: false
-	}));
-
-	wpPlugins.push(new webpack.optimize.DedupePlugin());
+	wpPlugins.push(
+			new webpack.optimize.UglifyJsPlugin({
+		sourceMap: false
+		}),
+		new webpack.optimize.DedupePlugin(),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': '"production"'
+		})
+	);
 
 } else {
 	wpPlugins.push(new webpack.SourceMapDevToolPlugin({

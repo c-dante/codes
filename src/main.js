@@ -70,17 +70,3 @@ app.component('landing', {
 	template: landingTpl,
 	controller: [LandingController],
 });
-
-/*
-import { ReplController } from './repl/repl.js';
-import replTpl from './repl/repl.tpl.jade';
-app.component('repl', {
-	controller: ['$ngRedux', ReplController],
-	template: replTpl,
-	bindToController: {
-	},
-});
-
-import { EditorDirective } from './editor/editor.js';
-app.directive('editor', [EditorDirective]);
-*/
