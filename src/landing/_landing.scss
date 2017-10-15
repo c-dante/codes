@@ -1,0 +1,33 @@
+.contact-info {
+	li {
+		list-style: none;
+		display: inline-block;
+		position: relative;
+	}
+
+	svg {
+		stroke: 0;
+		width: 2em;
+		margin: 0 0.25em 0 0.25em;
+		fill: $color-primary;
+		&:hover {
+			fill: lighten(red, 20%);
+		}
+	}
+
+	a {
+		&:hover {
+			.hover-text {
+				visibility: visible;
+			}
+		}
+
+		.hover-text {
+			color: lighten(red, 20%);
+			visibility: hidden;
+			@include absolute-center;
+			pointer-events: none;
+		}
+	}
+
+}

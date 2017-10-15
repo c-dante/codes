@@ -87,6 +87,13 @@ module.exports = {
 				]
 			},
 			{
+				include: /.svg$/,
+				loader: 'svg-sprite-loader',
+				options: {
+					symbolId: 'i-[name]',
+				}
+			},
+			{
 				include: /\.tpl\.(pug)$/,
 				loaders: [
 					'html-loader?removeRedundantAttributes=false',

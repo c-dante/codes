@@ -1,5 +1,6 @@
 import './app.scss';
 import angular from 'angular';
+import './icons';
 
 // Import some stuff
 import dfLanding from './landing';

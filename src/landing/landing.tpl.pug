@@ -1,2 +1,35 @@
-h1 dante.codes
+section.container
+	.row.row-center
+			header
+				h1 dante.codes
 
+	.row.row-center.contact-info
+		p {{ $ctrl.greeting }}
+
+	.row.row-center.contact-info
+		ul
+			li
+				a(
+					title="{{$ctrl.email}}"
+					ng-href="mailto:{{$ctrl.email}}"
+				)
+					svg(viewbox="0 0 32 32")
+						use(xlink:href="#i-gmail")
+					.hover-text gmail
+			li
+				a(
+					title="{{$ctrl.github}}"
+					target="_blank"
+					ng-href="//github.com/{{$ctrl.github}}"
+				) 
+					svg(viewbox="0 0 32 32")
+						use(xlink:href="#i-github")
+					.hover-text github
+			li
+				a(
+					target="_blank"
+					ng-href="//keybase.io/{{$ctrl.keybase}}"
+				)
+					svg(viewbox="0 0 32 32")
+						use(xlink:href="#i-keybase")
+					.hover-text keybase

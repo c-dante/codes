@@ -1,0 +1,5 @@
+@mixin absolute-center {
+	position: absolute;
+	right: 50%;
+	transform: translate(50%, -10%);
+}
