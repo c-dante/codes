@@ -1,0 +1,21 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }],
+    ["es2015", {
+      "modules": false
+    }]
+  ],
+  "plugins": [
+		["lodash"],
+    ["transform-object-rest-spread"]
+  ],
+  "env": {
+    "test": {
+      "presets": ["es2015"]
+    }
+  }
+}
