@@ -1,5 +1,17 @@
 {
-	"presets": ["es2015"],
-	"plugins": ["transform-object-rest-spread"]
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"modules": false,
+				"useBuiltIns": "usage",
+			}
+		]
+	],
+	"plugins": [
+		"@babel/plugin-syntax-object-rest-spread",
+		"@babel/plugin-proposal-class-properties",
+		"lodash"
+	],
 }
 

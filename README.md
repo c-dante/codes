@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Develop
 ```
 npm install
@@ -32,3 +33,6 @@ npm run compiler
 npm run aws-deploy s3://your-bucket-here
 ```
 note you need the aws cli installed for deployment to work
+=======
+Use [c-dante/web](//github.com/c-dante/web). This library is deprecated.
+>>>>>>> build/master
