@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 
 
 /**
@@ -65,12 +64,9 @@ const buildPlugins = [
 		template: './src/index.pug',
 		chunksSortMode: 'dependency',
 		excludeChunks: [],
-	}),
-	new ScriptExtHtmlWebpackPlugin({
-		sync: [
-			/vendors.*\.js/,
+		chunks: [
+			'styles',
 		],
-		defaultAttribute: 'async',
 	}),
 ];
 
@@ -87,9 +83,11 @@ const devPlugins = [
 const prodPlugins = [
 	new CleanWebpackPlugin(['dist']),
 
+	// Extract CSS
 	// @see https://webpack.js.org/plugins/mini-css-extract-plugin/
 	new MiniCssExtractPlugin({
 		filename: '[name].[contenthash].css',
+		sourceMap: false,
 	}),
 ];
 
@@ -120,7 +118,7 @@ module.exports = ({
 		plugins,
 		optimization,
 		entry: {
-			index: './src/index.js',
+			index: './src/index.css',
 		},
 		module: {
 			rules: [
@@ -140,14 +138,6 @@ module.exports = ({
 						'postcss-loader',
 					],
 				},
-//				{
-//					test: /\.scss$/,
-//					use: [
-//						production ? MiniCssExtractPlugin.loader : 'style-loader',
-//						'css-loader',
-//						'sass-loader',
-//					],
-//				},
 				// js / babel
 				{
 					test: /\.m?js$/,
