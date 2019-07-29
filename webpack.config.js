@@ -71,6 +71,11 @@ const buildPlugins = [
 ];
 
 const devPlugins = [
+	// Extract CSS
+	new MiniCssExtractPlugin({
+		filename: '[name].[contenthash].css',
+		sourceMap: true,
+	}),
 	new webpack.SourceMapDevToolPlugin({
 		columns: false,
 		filename: '[file].map[query]',
@@ -84,12 +89,26 @@ const prodPlugins = [
 	new CleanWebpackPlugin(['dist']),
 
 	// Extract CSS
-	// @see https://webpack.js.org/plugins/mini-css-extract-plugin/
 	new MiniCssExtractPlugin({
 		filename: '[name].[contenthash].css',
 		sourceMap: false,
 	}),
 ];
+
+// CSS loader based on prod or not
+const prodCssLoader = {
+	loader: MiniCssExtractPlugin.loader,
+	options: {
+		hmr: false,
+	}
+};
+
+const devCssLoader = {
+	loader: MiniCssExtractPlugin.loader,
+	options: {
+		hmr: true,
+	}
+};
 
 /**
  * entry points: src/index
@@ -133,7 +152,7 @@ module.exports = ({
 				{
 					test: /\.css$/,
 					use: [
-						production ? MiniCssExtractPlugin.loader : 'style-loader',
+						production ? prodCssLoader : devCssLoader,
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						'postcss-loader',
 					],

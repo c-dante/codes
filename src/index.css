@@ -1,6 +1,8 @@
+@import "./variables.css";
+
 body {
 	color: #222;
-	font-size: 16pt;
+	font-size: var(--baseFont);
 	background-color: lightskyblue;
 	margin: 1em;
 	padding: 0;
@@ -10,6 +12,8 @@ a {
 	color: chocolate;
 	font-weight: bold;
 	text-decoration: none;
+
+	transition: color var(--transitionSpeed);
 }
 
 a:hover {
